@@ -75,7 +75,7 @@ fi = pd.DataFrame(data=reg.feature_importances_,
                   index=reg.feature_names_in_,
                   columns=['Coefficients'])
 
-fi.sort_values('Coefficients').plot(kind='bar', title='Feature Coefficients')
+#fi.sort_values('Coefficients').plot(kind='bar', title='Feature Coefficients')
 
 #Forecast on the testing dataset
 test['prediction'] = reg.predict(X_test)
@@ -86,3 +86,15 @@ df['prediction'].plot(ax=ax, style='.')
 plt.legend(['Truth data', 'Predicitons'])
 ax.set_title('Raw Data and Predictions')
 plt.show()
+
+#Visualizing predictions for a single week of energy consumption
+ax = df.loc[(df.index > '04-01-2018') & (df.index < '04-08-2018')]['PJME_MW'] \
+    .plot(figsize=(15, 5), title='Week of Data')
+df.loc[(df.index > '04-01-2018') & (df.index < '04-08-2018')]['prediction'] \
+    .plot(style='.')
+plt.legend(['Truth Data', 'Prediction'])
+plt.show()
+
+score = np.sqrt(mean_squared_error(test['PJME_MW'], test['prediction']))
+print(f'RMSE Score on Test Set: {score:0.2f}')
+
