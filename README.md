@@ -1,0 +1,2 @@
+# Energy-Consumption-Prediction-Machine-Learning-Model
+ This project focuses on predicting future energy consumption using the XGBoost algorithm. By leveraging Time-Series energy consumption data, the model aims to provide accurate forecasts for energy usage. XGBoost was chosen for its efficiency in handling large datasets and providing robust predictions. The model's predictions can be applied to areas such as energy trading, load forecasting, and optimizing energy distribution strategies, contributing to more informed decision-making in energy management.
