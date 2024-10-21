@@ -75,7 +75,7 @@ fi = pd.DataFrame(data=reg.feature_importances_,
                   index=reg.feature_names_in_,
                   columns=['Coefficients'])
 
-#fi.sort_values('Coefficients').plot(kind='bar', title='Feature Coefficients')
+fi.sort_values('Coefficients').plot(kind='bar', title='Feature Coefficients')
 
 #Forecast on the testing dataset
 test['prediction'] = reg.predict(X_test)
